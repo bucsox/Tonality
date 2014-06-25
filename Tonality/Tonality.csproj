@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D35D041-8E36-47D6-8AE8-6C5D4D47BE8A}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tonality</RootNamespace>
+    <AssemblyName>Tonality</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Tonality.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Tonality.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <ExpressionBlendVersion>12.0.50429.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClass\BindableBase.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\CustomKeyGroup.cs" />
+    <Compile Include="ViewModels\SoundData.cs" />
+    <Compile Include="ViewModels\SoundGroup.cs" />
+    <Compile Include="ViewModels\SoundModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleData\SampleData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SoundBoard_2013_05_29_13_22_07.sap" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\cancel.png" />
+    <Content Include="Assets\AppBar\play.png" />
+    <Content Include="Assets\AppBar\save.png" />
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\Audio\Entertainment\24 CTU.mp3" />
+    <Content Include="Assets\Audio\Entertainment\A-Team Ring 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\A-Team Ring1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\A-Team SMS1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\A-Team SMS2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\A-Team SMS4.mp3" />
+    <Content Include="Assets\Audio\Entertainment\A-Team SMS3.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Bates Motel.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Breaking Bad SMS 1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Breaking Bad SMS 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Breaking Bad Theme.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN Da da da.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN MNF 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN MNF 1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN NHL 1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN NHL 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN Opening.mp3" />
+    <Content Include="Assets\Audio\Entertainment\ESPN NBA.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Fox News Alert.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Fox NFL 1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Fox NFL 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Fox NFL 3.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Halloween.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Hannibal 1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Hannibal 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Hannibal 3.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Hannibal 4.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Inception.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Jason 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Jason Friday the 13th.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Jetsons Car.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Jetsons Doorbell.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Jetsons SMS.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Knight Ryder Ring.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Knight Ryder Short.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Law and Order.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Old Spice Whistle.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Pyscho.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Road Runner Meep 2.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Road Runner Meep 1.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Road Runner Tongue.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Star Trek Chirp.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Star Trek Door Lift.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Star Trek Intercom.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Tazmanian Spin.mp3" />
+    <Content Include="Assets\Audio\Entertainment\The Rifleman.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Transformers Scene Chg.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Transformers Transform.mp3" />
+    <Content Include="Assets\Audio\Entertainment\Willy Wonka  flute.mp3" />
+    <Content Include="Assets\Audio\Entertainment\X-Files Ring.mp3" />
+    <Content Include="Assets\Audio\Entertainment\X-Files Ring short.mp3" />
+    <Content Include="Assets\Audio\Entertainment\X-Files SMS.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Choc.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Color Bomb1.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Color Bomb2.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Delicious.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Devine.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Fish 1.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Fish 2.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Flash.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Level Done.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Level Fail.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Line Blast.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Nut.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Owl Freeze.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Square Remove.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Stripped.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Super Color Bomb.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Sweet.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Swoop In.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Swoop Out.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Swoosh.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Tasty.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Time Warn.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Tornado 1.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Tornado 2.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Tornado 3.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Unlock.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Update.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\CandyCrush Wrapped.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Coin Drop.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Gameboy.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Gamecube Bootup.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Gamesube Bootup 34.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Half LIfe Sharp Fear.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Megaman Legends Get Item .mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Metal Gear Alert.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Portal 2 button positive.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Portal 2 Gun Blue.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Portal 2 Gun Orange.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Ringer.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\shakeup.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Sonic 2 Check Point 1.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Sonic 2 Check Point 2.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Sonic Ring Effect.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Splinter Cell Night Vision.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\SSgtBruskowiz Modern Ringtone.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\SSgtBruskowiz TorchWoodv2.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\StarCraft Chat.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\StarCraft Comm Beep.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Tada.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\video off.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\video on.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Xbox Achievement.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Zelda Item 1.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Zelda Item 2.mp3" />
+    <Content Include="Assets\Audio\GamesMsc\Zelda Secret.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Deflate.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Exhale.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Feather Ruffle.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Inflate.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Inhale.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Quack.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Tokyo Contact_Off.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Tokyo Contact_On.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Tokyo Message_Received.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Tokyo Message_Sent.mp3" />
+    <Content Include="Assets\Audio\Messengers\Adium Tokyo New_Message.mp3" />
+    <Content Include="Assets\Audio\Messengers\AOL Door Open.mp3" />
+    <Content Include="Assets\Audio\Messengers\AOL Door Shut.mp3" />
+    <Content Include="Assets\Audio\Messengers\AOL Message.mp3" />
+    <Content Include="Assets\Audio\Messengers\AOL You Got Mail.mp3" />
+    <Content Include="Assets\Audio\Messengers\AOLConnect.mp3" />
+    <Content Include="Assets\Audio\Messengers\Blackberry Spirit.mp3" />
+    <Content Include="Assets\Audio\Messengers\Blackberry Text Brief.mp3" />
+    <Content Include="Assets\Audio\Messengers\Blackberry Text Pure.mp3" />
+    <Content Include="Assets\Audio\Messengers\Blackberry Text Tight.mp3" />
+    <Content Include="Assets\Audio\Messengers\Blackberry Zen Spirit.mp3" />
+    <Content Include="Assets\Audio\Messengers\ChatOn Error.mp3" />
+    <Content Include="Assets\Audio\Messengers\ChatOn Glass.mp3" />
+    <Content Include="Assets\Audio\Messengers\ChatOn Horn.mp3" />
+    <Content Include="Assets\Audio\Messengers\ChatOn Melody.mp3" />
+    <Content Include="Assets\Audio\Messengers\ChatOn Piano.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Chat.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Down.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Growinig.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr incoming.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr large.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr medium.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Message.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Refresh.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr small.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Sticker In.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Sticker Out.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr timeout.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Msgr Typing.mp3" />
+    <Content Include="Assets\Audio\Messengers\Facebook Notify.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google Hangout Incoming.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google hangout join 2.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google Hangout join.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google hangout leave 2.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google Hangout Leave.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google Hangout Msg.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google Hangout Outgoing.mp3" />
+    <Content Include="Assets\Audio\Messengers\Google Hangout Ring.mp3" />
+    <Content Include="Assets\Audio\Messengers\Hike Messenger.mp3" />
+    <Content Include="Assets\Audio\Messengers\iChat Log In.mp3" />
+    <Content Include="Assets\Audio\Messengers\iChat Msg.mp3" />
+    <Content Include="Assets\Audio\Messengers\iChat Ringer.mp3" />
+    <Content Include="Assets\Audio\Messengers\IMO beep.mp3" />
+    <Content Include="Assets\Audio\Messengers\IMO.mp3" />
+    <Content Include="Assets\Audio\Messengers\Kakao call ring.mp3" />
+    <Content Include="Assets\Audio\Messengers\Kakao member join.mp3" />
+    <Content Include="Assets\Audio\Messengers\Kakao member leave.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 06.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 07.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 08.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 09.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 10.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 18.mp3" />
+    <Content Include="Assets\Audio\Messengers\kakao Ns 05.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE A14.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE A3.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE A66.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE A7.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE B13.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE b6.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE Bell 1.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE Bell 2.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE BIRD.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE Ding Dong.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE End.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE Ring Back.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE Ring.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE UI FAIL.mp3" />
+    <Content Include="Assets\Audio\Messengers\LINE Xylophone.mp3" />
+    <Content Include="Assets\Audio\Messengers\MSN.mp3" />
+    <Content Include="Assets\Audio\Messengers\Nimbuzz busy.mp3" />
+    <Content Include="Assets\Audio\Messengers\Nimbuzz dial.mp3" />
+    <Content Include="Assets\Audio\Messengers\Nimbuzz error.mp3" />
+    <Content Include="Assets\Audio\Messengers\Nimbuzz incoming.mp3" />
+    <Content Include="Assets\Audio\Messengers\Nimbuzz incommingVideo.mp3" />
+    <Content Include="Assets\Audio\Messengers\Nimbuzz Notification.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ classic.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ close.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ download complete.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ incoming.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ office.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ playfinish.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ request.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ sendover.mp3" />
+    <Content Include="Assets\Audio\Messengers\QQ start record.mp3" />
+    <Content Include="Assets\Audio\Messengers\Skype 2.mp3" />
+    <Content Include="Assets\Audio\Messengers\Skype Offline.mp3" />
+    <Content Include="Assets\Audio\Messengers\Skype Online.mp3" />
+    <Content Include="Assets\Audio\Messengers\Skype Ring.mp3" />
+    <Content Include="Assets\Audio\Messengers\Skype Ringout.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tada.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tango Msg Sent.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tango New Msg.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tango Ringtone.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tango Shake 2.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tango Shake.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tinder match.mp3" />
+    <Content Include="Assets\Audio\Messengers\Tinder message.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Astra Ring.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Capture.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Chat In.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Chat Out.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Load.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Mail.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Message.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Meta Off.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Meta On.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Msg In.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Msg Out.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Notify.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian Off.mp3" />
+    <Content Include="Assets\Audio\Messengers\Trillian On.mp3" />
+    <Content Include="Assets\Audio\Messengers\Twitter.mp3" />
+    <Content Include="Assets\Audio\Messengers\Viber activate secondary.mp3" />
+    <Content Include="Assets\Audio\Messengers\Viber incoming bg.mp3" />
+    <Content Include="Assets\Audio\Messengers\Viber incoming fg.mp3" />
+    <Content Include="Assets\Audio\Messengers\viber ring.mp3" />
+    <Content Include="Assets\Audio\Messengers\Viber send sticker.mp3" />
+    <Content Include="Assets\Audio\Messengers\Viber transfer confirm.mp3" />
+    <Content Include="Assets\Audio\Messengers\Viber transfer in.mp3" />
+    <Content Include="Assets\Audio\Messengers\WeChat Off.mp3" />
+    <Content Include="Assets\Audio\Messengers\WeChat On.mp3" />
+    <Content Include="Assets\Audio\Messengers\WeChat phonering.mp3" />
+    <Content Include="Assets\Audio\Messengers\WeChat playend.mp3" />
+    <Content Include="Assets\Audio\Messengers\WhatsApp Incoming.mp3" />
+    <Content Include="Assets\Audio\Messengers\WhatsApp Ringback.mp3" />
+    <Content Include="Assets\Audio\Messengers\WhatsApp Voice Error.mp3" />
+    <Content Include="Assets\Audio\Software\6Tag Aperggio.mp3" />
+    <Content Include="Assets\Audio\Software\6Tag Pictures.mp3" />
+    <Content Include="Assets\Audio\Software\6Tag Space.mp3" />
+    <Content Include="Assets\Audio\Software\6Tag Symbian.mp3" />
+    <Content Include="Assets\Audio\Software\Facebook Chat.mp3" />
+    <Content Include="Assets\Audio\Software\Facebook Notify.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass call incoming ring.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass call start.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass call stop.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass navigation.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass notification multiple.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass notification.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass off.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass on.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass photo shutter.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass Pwr.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass scale resolve.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass shut down.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass success.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass tap.mp3" />
+    <Content Include="Assets\Audio\Software\Google Glass video stop.mp3" />
+    <Content Include="Assets\Audio\Software\Kaspersky Alert.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu OS Login.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu OS Logout.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu OS question.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Amsterdam.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Blip.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Mallet.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Positive.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Rhodes.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Slick.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Soft delay.mp3" />
+    <Content Include="Assets\Audio\Software\Ubuntu Touch Xylo.mp3" />
+    <Content Include="Assets\Audio\Software\Vine Notification.mp3" />
+    <Content Include="Assets\Audio\Software\Win 7 Lock.mp3" />
+    <Content Include="Assets\Audio\Software\Win 7 Unlock.mp3" />
+    <Content Include="Assets\Audio\Software\Win8 Calendar.mp3" />
+    <Content Include="Assets\Audio\Software\Win8 Email.mp3" />
+    <Content Include="Assets\Audio\Software\Win8 Logoff.mp3" />
+    <Content Include="Assets\Audio\Software\Win8 LogOn.mp3" />
+    <Content Include="Assets\Audio\Software\Win8 Notify.mp3" />
+    <Content Include="Assets\Audio\Software\Win8 Unlock.mp3" />
+    <Content Include="Assets\Audio\Software\Windows 3 1.mp3" />
+    <Content Include="Assets\Audio\Software\Windows 95.mp3" />
+    <Content Include="Assets\Audio\Software\Windows 98.mp3" />
+    <Content Include="Assets\Audio\Software\Windows Millennium Edition.mp3" />
+    <Content Include="Assets\Audio\Software\Windows Vista Beta.mp3" />
+    <Content Include="Assets\Audio\Software\Windows XP.mp3" />
+    <Content Include="Assets\Audio\Software\WPCentral.mp3" />
+    <Content Include="Assets\email.png" />
+    <Content Include="Assets\fb.png" />
+    <Content Include="Assets\Tiles\Soundwave1.png" />
+    <Content Include="Assets\twitter.png" />
+    <Content Include="ReadMe.Coding4Fun.Toolkit.txt" />
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Soundwave1.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit.Audio, Version=2.0.7.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Coding4Fun.Toolkit (Windows Phone 8)\Coding4Fun.Toolkit.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls, Version=2.0.7.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Coding4Fun.Toolkit (Windows Phone 8)\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Coding4Fun.Toolkit (Windows Phone 8)\Coding4Fun.Toolkit.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Storage, Version=2.0.7.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Coding4Fun.Toolkit (Windows Phone 8)\Coding4Fun.Toolkit.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP8">
+      <HintPath>..\packages\MvvmLightLibs.4.3.31.0\lib\wp8\GalaSoft.MvvmLight.Extras.WP8.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WP8">
+      <HintPath>..\packages\MvvmLightLibs.4.3.31.0\lib\wp8\GalaSoft.MvvmLight.WP8.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Advertising.Mobile, Version=6.2.960.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Advertising.Mobile.UI, Version=6.2.960.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WPtoolkit.Kinnara.4.2014.04.23\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\MvvmLightLibs.4.3.31.0\lib\wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.4.3.31.0\lib\wp8\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="Fonts\Candara.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\Candarab.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\Candarai.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\Candaraz.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="Fonts\MOD20.TTF">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+  </ItemGroup>
+  <ItemGroup>
+    <BlendEmbeddedFont Include="Fonts\POORICH.TTF">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\andlso.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Audio\Android\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\WindowsPhone\v8.0\Microsoft.Expression.Blend.WindowsPhone.targets" />
+</Project>
