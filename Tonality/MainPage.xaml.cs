@@ -23,7 +23,14 @@ namespace Tonality
 
     public partial class MainPage : PhoneApplicationPage
     {
-        
+        public string FilePath { get; set; }
+
+        WebClient _webClient; // Used for downloading mp3
+        private bool _playSoundAfterDownload;
+        #region New code
+        private Stream audioStream;
+        #endregion
+
         // Constructor
         public MainPage()
         {
@@ -36,13 +43,32 @@ namespace Tonality
             this.LongList3.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.GamesMsc.Items);
             this.LongList4.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Android.Items);
             this.LongList5.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Entertainment.Items);
-            
+
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
 
-            // Sample code to localize the ApplicationBar
-            
         }
+
+
+        // Check to make sure there are enough space available on the phone
+        // in order to save the image that we are downloading on to the phone
+        private bool IsSpaceIsAvailable(long spaceReq)
+        {
+            using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+
+                long spaceAvail = store.AvailableFreeSpace;
+                if (spaceReq > spaceAvail)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+        // Sample code to localize the ApplicationBar
+
+
+
 
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -67,23 +93,37 @@ namespace Tonality
             if (data == null)
                 return;
 
-
-            if (File.Exists(data.FilePath))
+            #region New code
+            if (data.IsDownloaded)
             {
-                AudioPlayer.Source = new Uri(data.FilePath, UriKind.RelativeOrAbsolute);
+                if (audioStream != null)
+                {
+                    audioStream.Close();
+                    audioStream.Dispose();
+                }
+
+                audioStream = IsolatedStorageFile.GetUserStoreForApplication().OpenFile(data.SavePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+                // Apparently MediaElement doesn't like isostore:/
+                AudioPlayer.SetSource(audioStream);
+                AudioPlayer.Play();
             }
             else
             {
-                using (var storageFolder = IsolatedStorageFile.GetUserStoreForApplication())
+                // TODO: the application should check if there is an internet connection available and warn the user if 
+                // it's disconnected. Otherwise it won't pass certification.
+                WebClient client = new WebClient();
+                client.OpenReadCompleted += (senderClient, args) =>
                 {
-                    using (var stream = new IsolatedStorageFileStream(data.FilePath, FileMode.Open, storageFolder))
+                    using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(data.SavePath))
                     {
-                        AudioPlayer.SetSource(stream);
+                        args.Result.Seek(0, SeekOrigin.Begin);
+                        args.Result.CopyTo(fileStream);
                     }
-                }
+                };
+                client.OpenReadAsync(new Uri(data.FilePath));
             }
-
-
+            #endregion
 
 
             selector.SelectedItem = null;
