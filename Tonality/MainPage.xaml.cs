@@ -25,8 +25,7 @@ namespace Tonality
     {
         public string FilePath { get; set; }
 
-        WebClient _webClient; // Used for downloading mp3
-        private bool _playSoundAfterDownload;
+        
         #region New code
         private Stream audioStream;
         #endregion
@@ -107,6 +106,7 @@ namespace Tonality
                 // Apparently MediaElement doesn't like isostore:/
                 AudioPlayer.SetSource(audioStream);
                 AudioPlayer.Play();
+                
             }
             else
             {
@@ -114,14 +114,20 @@ namespace Tonality
                 // it's disconnected. Otherwise it won't pass certification.
                 WebClient client = new WebClient();
                 client.OpenReadCompleted += (senderClient, args) =>
+                
                 {
                     using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(data.SavePath))
                     {
                         args.Result.Seek(0, SeekOrigin.Begin);
                         args.Result.CopyTo(fileStream);
+                        
+                        
+                        
+                        
                     }
                 };
                 client.OpenReadAsync(new Uri(data.FilePath));
+                
             }
             #endregion
 

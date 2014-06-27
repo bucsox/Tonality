@@ -103,7 +103,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
-        <MediaElement x:Name="AudioPlayer"
+        <MediaElement x:Name="AudioPlayer" AutoPlay="True" 
 			Volume="1" />
 
         <!--Pivot Control-->
@@ -121,16 +121,32 @@
             <!--Pivot item one-->
             <phone:PivotItem Header="Welcome" FontFamily="Trebuchet MS">
                 <!--Double line list with text wrapping-->
-                <ScrollViewer HorizontalAlignment="Left" Height="590" VerticalAlignment="Top" Width="456">
+                <ScrollViewer HorizontalAlignment="Left" Height="774" VerticalAlignment="Top" Width="456" Margin="0,-24,0,-143" FontFamily="Segoe WP">
                     <!--Double line list with text wrapping-->
                     <StackPanel
-            			Height="750" Width="456">
-                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="White"  Text="Tonality 3.0 brings you JumpLists to simplify navigation. To use the JumpList, touch the Header name. Swipe left or right now to begin.&#xA;&#xA;To listen to a sound, simply press and release.&#xA;&#xA;To save as a Ringtone, PRESS AND HOLD briefly&#xA;"
-            				VerticalAlignment="Top" Height="187" Width="456"/>
-                        <Button Content="Rate and Review" Click="Review_Click" Width="400" Height="90"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="28,0,30,0"/>
-                        <Button Content="Email Requests/Concerns" Click="Email_Click" Width="400" Height="90" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="28,0"/>
-                        <Button Content="Tonality 8.1 version! Save sounds to phone!" Click="Paid_Click" Width="400" Height="90" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="28,0,30,20" FontSize="17.333"/>
-                        <Button Content="" Click="Share_Click" Width="90" Height="90" Margin="48,-20,280,0">
+            			Height="750" Width="456" Margin="0,-24,0,0">
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFF0EAEA"
+            				VerticalAlignment="Top" Height="290" Width="456" Margin="0,0,0,4" FontSize="18.667" FontFamily="Segoe WP" FontWeight="Bold" TextAlignment="Center">
+                        	<Run Text="Tonality 4.0 brings isolated storage. App download"/>
+                        	<LineBreak/>
+                        	<Run Text="size is now small. Sounds are saved into an isostore "/>
+                        	<LineBreak/>
+                        	<Run Text="which stays in tact during App updates."/>
+                        	<LineBreak/>
+                        	<Run Text="IMPORTANT:  Requires cellular/internet connection to listen to a each sound for the first time"/>
+                        	<Run Text="."/>
+                        	<Run Text="  Initial press of a sound button will download the audio in the background. Press button again to  play the sound.  &#xA;To save as a Ringtone, PRESS AND HOLD briefly"/>
+                        	<LineBreak/>
+                        	<Run/>
+                        	<LineBreak/>
+                        	<Run Text="Coming soon: Autoplay after initial download&#xA;"/>
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal" Height="98" Width="456" Margin="0">
+                        	<Button Content="Rate &amp; &#xD;&#xA;Review" Click="Review_Click" Width="140" Height="99"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,1,0" Padding="5,5,5,6" FontSize="18.667"/>
+                        	<Button Content="   Email &#xD;&#xA;Requests" Click="Email_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" Padding="5,5,5,6" FontSize="18.667"/>
+                        	<Button Content="      Get&#xD;&#xA;Tonality 8.1" Click="Paid_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" FontSize="17.333" HorizontalAlignment="Right" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6"/>
+                        </StackPanel>
+                        <Button Content="" Click="Share_Click" Width="90" Height="90" Margin="48,40,280,0">
                             <Button.Background>
                                 <ImageBrush Stretch="Fill" ImageSource="/Assets/email.png"/>
                             </Button.Background>
@@ -225,7 +241,7 @@
 
 
         </phone:Pivot>
-        <StackPanel  Height="80" Orientation="Vertical" Width="480" Margin="0,628,10,-40">
+        <StackPanel  Height="80" Orientation="Vertical" Width="480" Margin="0,628,10,-59">
             <UI:AdControl ApplicationId="05af8502-6f46-497b-bdad-5d2278736d9a" AdUnitId="171440" Height="80" Width="480" IsAutoRefreshEnabled="True"/>
         </StackPanel>
 
