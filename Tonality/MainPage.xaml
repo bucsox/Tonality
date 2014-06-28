@@ -241,7 +241,7 @@
 
 
         </phone:Pivot>
-        <StackPanel  Height="80" Orientation="Vertical" Width="480" Margin="0,628,10,-59">
+        <StackPanel  Height="80" Orientation="Vertical" Width="480" Margin="0,628,10,-75">
             <UI:AdControl ApplicationId="05af8502-6f46-497b-bdad-5d2278736d9a" AdUnitId="171440" Height="80" Width="480" IsAutoRefreshEnabled="True"/>
         </StackPanel>
 

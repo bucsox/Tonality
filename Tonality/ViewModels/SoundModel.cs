@@ -2367,7 +2367,176 @@ namespace Tonality.ViewModels
         {
             SoundGroup data = new SoundGroup();
             data.Title = "Cellular OS";
-            
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Acoustic Guitar",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Acoustic_Guitar.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Acoustic_Guitar.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Arpeggio",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Arpeggio.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Arpeggio.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Bean",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Bean.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Bean.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Bike",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Bike.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Bike.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Bubble",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Bubble.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Bubble.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Clarinet",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Clarinet.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Clarinet.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Crystal",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Crystal.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Crystal.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Ding Dong",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Ding_Dong.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Ding_Dong.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Echo",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Echo.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Echo.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Email",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Email.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Email.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Hello",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Hello.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Hello.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Knock",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Knock.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Knock.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Laser",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Laser.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Laser.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Lifes Good Noti",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Lifes_Good_Noti.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Lifes_Good_Noti.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Message",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Message.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Message.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Pebble",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Pebble.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Pebble.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Piano",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Piano.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Piano.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Schedule",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Schedule.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Schedule.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Sprout",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Sprout.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Sprout.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Twinkle",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Twinkle.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Twinkle.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "LG G2 Youve Got Mail",
+                FilePath = "https://googledrive.com/host/0B8EaOYJiTtnVdi1nekIwZnFsLVU/LG_G2_Youve_Got_Mail.mp3",
+                Groups = "LG",
+                SavePath = "LG_G2_Youve_Got_Mail.mp3"
+            }); 
+
+
             data.Items.Add(new SoundData 
             { 
                 Title = "Android Beat Box",
