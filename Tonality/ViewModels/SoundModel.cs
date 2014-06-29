@@ -31,6 +31,7 @@ namespace Tonality.ViewModels
             Entertainment = CreateEntertainmentGroup();
             GamesMsc = CreateGamesMscGroup();
             Android = CreateAndroidGroup();
+            NewAdds = CreateNewAddsGroup();
             
             
 
@@ -56,7 +57,316 @@ namespace Tonality.ViewModels
         }
 
 
+        private SoundGroup CreateNewAddsGroup()
+        {
+            SoundGroup data = new SoundGroup();
+            data.Title = "Recently Added";
 
+            data.Items.Add(new SoundData
+            {
+                Title = "Bloom",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Bloom.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Bloom.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Concern",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Concern.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Concern.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Connected",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Connected.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Connected.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Full",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Full.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Full.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Gentle Roll",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Gentle_Roll.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Gentle_Roll.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "High Boom",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/High_Boom.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "High_Boom.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Hollow",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Hollow.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Hollow.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Hope",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Hope.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Hope.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Jump Down",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Jump_Down.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Jump_Down.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Jump Up",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Jump_Up.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Jump_Up.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Looking Down",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Looking_Down.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Looking_Down.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Looking Up",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Looking_Up.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Looking_Up.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Nudge",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Nudge.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Nudge.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Picked",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Picked.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Picked.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Puff",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Puff.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Puff.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Realization",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Realization.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Realization.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Rome 1",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Rome_1.mp3",
+                Groups = "Television",
+                SavePath = "Rome_1.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Second Glance",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Second_Glance.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Second_Glance.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 a",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_a.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_a.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 b",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_b.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_b.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 c",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_c.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_c.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 d",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_d.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_d.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 e",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_e.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_e.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 f",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_f.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_f.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 g",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_g.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_g.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 h",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_h.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_h.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 i",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_i.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_i.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 j",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_j.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_j.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 k",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_k.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_k.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 l",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_l.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_l.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Sonic 2 m",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Sonic_2_m.mp3",
+                Groups = "VideoGames",
+                SavePath = "Sonic_2_m.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Stumble",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Stumble.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Stumble.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Suspended",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Suspended.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Suspended.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Turn",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Turn.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Turn.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Unsure",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Unsure.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Unsure.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Gauntlet Exit",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Gauntlet_Exit.mp3",
+                Groups = "VideoGames",
+                SavePath = "Gauntlet_Exit.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Icarus 1 Distress Beacon",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Icarus_1_Distress_Beacon.mp3",
+                Groups = "Movies",
+                SavePath = "Icarus_1_Distress_Beacon.mp3"
+            });
+
+            data.Items.Add(new SoundData
+            {
+                Title = "Serve My Thirst Notification",
+                FilePath = "https://dl.dropboxusercontent.com/u/8725336/Serve_My_Thirst_Notification.mp3",
+                Groups = "Miscellaneous",
+                SavePath = "Serve_My_Thirst_Notification.mp3"
+            });
+            return data;
+        }
 
 
         private SoundGroup CreateSoftwareGroup()
@@ -7808,13 +8118,7 @@ namespace Tonality.ViewModels
                 SavePath =  "WinMobile_Ring.mp3"
             }); 
 
-
-
-
-
-
-
-
+            
             return data;
         }
         }

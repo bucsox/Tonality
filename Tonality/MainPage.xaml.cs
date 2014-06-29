@@ -19,17 +19,13 @@ using System.IO.IsolatedStorage;
 
 namespace Tonality
 {
-
-
+    
     public partial class MainPage : PhoneApplicationPage
     {
         public string FilePath { get; set; }
-
-
-        #region New code
+               
         private Stream audioStream;
-        #endregion
-
+        
         // Constructor
         public MainPage()
         {
@@ -42,6 +38,7 @@ namespace Tonality
             this.LongList3.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.GamesMsc.Items);
             this.LongList4.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Android.Items);
             this.LongList5.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Entertainment.Items);
+            this.LongList6.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.NewAdds.Items);
 
             // Set the data context of the listbox control to the sample data
             DataContext = App.ViewModel;
@@ -64,10 +61,7 @@ namespace Tonality
                 return true;
             }
         }
-        // Sample code to localize the ApplicationBar
-
-
-
+        
 
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -92,7 +86,7 @@ namespace Tonality
             if (data == null)
                 return;
 
-            #region New code
+
             if (data.IsDownloaded)
             {
                 if (audioStream != null)
@@ -109,8 +103,7 @@ namespace Tonality
             }
             else
             {
-                // TODO: the application should check if there is an internet connection available and warn the user if
-                // it's disconnected. Otherwise it won't pass certification.
+
                 WebClient client = new WebClient();
                 client.OpenReadCompleted += (senderClient, args) =>
                 {
@@ -133,18 +126,14 @@ namespace Tonality
                 client.OpenReadAsync(new Uri(data.FilePath));
 
             }
-            #endregion
+            
 
 
             selector.SelectedItem = null;
 
         }
 
-        // Sample code for building a localized ApplicationBar
-
-
-
-
+        
 
         private void Review_Click(object sender, RoutedEventArgs e)
         {

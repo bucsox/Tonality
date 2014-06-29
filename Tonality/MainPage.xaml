@@ -40,13 +40,13 @@
                 </toolkit:ContextMenuService.ContextMenu>
 
                 <Grid Background="{StaticResource PhoneAccentBrush}"
-        			Margin="0,5,3,0" Height="100" Width="154"
+        			Margin="0,5,6,0" Height="100" Width="140"
                       >
                     <Grid VerticalAlignment="Bottom"
         				HorizontalAlignment="Right"
-        				Width="50"
-        				Height="40"
-        				Margin="0,2, 3, 6">
+        				Width="20"
+        				Height="30"
+        				Margin="0,0,5, 6">
 
                         <Image Source="/Assets/tiles/soundwave1.png" />
                     </Grid>
@@ -76,7 +76,7 @@
         <Style x:Key="imageJumpListStyle" TargetType="phone:LongListSelector">
             <Setter Property="GridCellSize"  Value="150,100"/>
             <Setter Property="LayoutMode" Value="Grid" />
-            
+
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
@@ -144,9 +144,9 @@
                         	<Run Text="&#xA;"/>
                         </TextBlock>
                         <StackPanel Orientation="Horizontal" Height="117" Width="456" Margin="0,11,0,0">
-                        	<Button Content="Rate &amp; &#xA;Review" Click="Review_Click" Width="140" Height="99"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,1,9" Padding="5,5,5,6" FontSize="18.667"/>
-                        	<Button Content="   Email &#xA;Requests" Click="Email_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" Padding="5,5,5,6" FontSize="18.667"/>
-                        	<Button Content="      Get&#xA;Tonality 8.1" Click="Paid_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" FontSize="17.333" HorizontalAlignment="Right" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6"/>
+                            <Button Content="Rate &amp; &#xA;Review" Click="Review_Click" Width="140" Height="99"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,1,9" Padding="5,5,5,6" FontSize="18.667"/>
+                            <Button Content="   Email &#xA;Requests" Click="Email_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" Padding="5,5,5,6" FontSize="18.667"/>
+                            <Button Content="      Get&#xA;Tonality 8.1" Click="Paid_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" FontSize="17.333" HorizontalAlignment="Right" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6"/>
                         </StackPanel>
                         <Button Content="" Click="Share_Click" Width="90" Height="90" Margin="48,-5,280,0">
                             <Button.Background>
@@ -169,13 +169,12 @@
 
             </phone:PivotItem>
 
-            <!--Pivot item one-->
-            <phone:PivotItem Header="{Binding Android.Title}" Margin="12,28,12,0">
+            <phone:PivotItem Header="{Binding NewAdds.Title}" Margin="12,28,12,0">
                 <!--Double line list with text wrapping-->
-                <phone:LongListSelector x:Name="LongList4" Margin="0,0,-12,80" 
+                <phone:LongListSelector x:Name="LongList6" Margin="23,0,-15,80" 
             		ItemsSource="{Binding Android.Items}"
             		LayoutMode="Grid"
-            		GridCellSize="150,100"
+            		GridCellSize="145,100"
             		ItemTemplate="{StaticResource SoundTileDataTemplate}"
             		SelectionChanged="LongListSelector_SelectionChanged"
                     IsGroupingEnabled="True"
@@ -183,13 +182,24 @@
                     JumpListStyle="{StaticResource imageJumpListStyle}"                    />
             </phone:PivotItem>
 
-            <!--Pivot item two-->
+
+            <phone:PivotItem Header="{Binding Android.Title}" Margin="12,28,12,0">
+
+                <phone:LongListSelector x:Name="LongList4" Margin="23,0,-15,80" 
+            		ItemsSource="{Binding Android.Items}"
+            		LayoutMode="Grid"
+            		GridCellSize="140,100"
+            		ItemTemplate="{StaticResource SoundTileDataTemplate}"
+            		SelectionChanged="LongListSelector_SelectionChanged"
+                                        />
+            </phone:PivotItem>
+
             <phone:PivotItem Header="{Binding Messengers.Title}">
                 <!--Double line list with text wrapping-->
-                <phone:LongListSelector x:Name="LongList2" Margin="0,0,-12,80" 
+                <phone:LongListSelector x:Name="LongList2" Margin="23,0,-15,80" 
 					ItemsSource="{Binding Messengers.Items}"
 					LayoutMode="Grid"
-					GridCellSize="150,100"
+					GridCellSize="140,100"
 					ItemTemplate="{StaticResource SoundTileDataTemplate}"
 					SelectionChanged="LongListSelector_SelectionChanged"
                     IsGroupingEnabled="True"
@@ -197,13 +207,13 @@
                     JumpListStyle="{StaticResource imageJumpListStyle}"
                                         />
             </phone:PivotItem>
-            
+
             <phone:PivotItem Header="{Binding Software.Title}">
                 <!--Double line list with text wrapping-->
-                <phone:LongListSelector x:Name="LongList1" Margin="0,0,-12,80" 
+                <phone:LongListSelector x:Name="LongList1" Margin="23,0,-15,80" 
 					ItemsSource="{Binding Software.Items}"
 					LayoutMode="Grid"
-					GridCellSize="150,100"
+					GridCellSize="140,100"
 					ItemTemplate="{StaticResource SoundTileDataTemplate}"
 					SelectionChanged="LongListSelector_SelectionChanged"
                     IsGroupingEnabled="True"
@@ -212,13 +222,12 @@
                                         />
             </phone:PivotItem>
 
-
             <phone:PivotItem Header="{Binding Entertainment.Title}">
                 <!--Double line list with text wrapping-->
                 <phone:LongListSelector x:Name="LongList5" Margin="0,-8,-12,80" 
 					ItemsSource="{Binding Entertainment.Items}"
 					LayoutMode="Grid"
-					GridCellSize="150,100"
+					GridCellSize="142,100"
 					ItemTemplate="{StaticResource SoundTileDataTemplate}"
 					SelectionChanged="LongListSelector_SelectionChanged"
                     IsGroupingEnabled="True"
@@ -230,10 +239,10 @@
 
             <phone:PivotItem Header="{Binding GamesMsc.Title}">
                 <!--Double line list with text wrapping-->
-                <phone:LongListSelector x:Name="LongList3" Margin="0,0,-12,80" 
+                <phone:LongListSelector x:Name="LongList3" Margin="23,0,-15,80" 
 					ItemsSource="{Binding GamesMsc.Items}"
 					LayoutMode="Grid"
-					GridCellSize="150,100"
+					GridCellSize="142,100"
 					ItemTemplate="{StaticResource SoundTileDataTemplate}"
 					SelectionChanged="LongListSelector_SelectionChanged"
                     IsGroupingEnabled="True"
@@ -253,7 +262,7 @@
             if the System Tray is hidden.
 
             Before shipping remove this XAML and the image itself.-->
-        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" IsHitTestVisible="False" />-->
+        <Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" IsHitTestVisible="False" />
     </Grid>
 
 </phone:PhoneApplicationPage>
