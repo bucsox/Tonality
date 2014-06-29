@@ -126,27 +126,29 @@
                     <StackPanel
             			Height="750" Width="456" Margin="0,-24,0,0">
                         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFF0EAEA"
-            				VerticalAlignment="Top" Height="290" Width="456" Margin="0,0,0,4" FontSize="18.667" FontFamily="Segoe WP" FontWeight="Bold" TextAlignment="Center">
-                        	<Run Text="Tonality 4.0 brings isolated storage. App download"/>
+            				VerticalAlignment="Top" Height="320" Width="456" Margin="0,0,0,4" FontSize="18.667" FontFamily="Segoe WP" FontWeight="Bold" TextAlignment="Center">
+                        	<Run Text="Tonality 4.0 brings isolated storage. Sound files are no longer packaged with app."/>
+                        	<Run FontSize="21.333"/>
                         	<LineBreak/>
-                        	<Run Text="size is now small. Sounds are saved into an isostore "/>
+                        	<Run FontSize="21.333"/>
                         	<LineBreak/>
-                        	<Run Text="which stays in tact during App updates."/>
+                        	<Run FontSize="21.333" Text="IMPORTANT"/>
+                        	<Run Text=":  To listen to a sound for the very first time you will need a cellular/network connection. If you have a network connection and still have issues, check that you can reach http://dropbox.com. Dropbox is the host of these files.&#xA;Once you play a sound, its stored in the isostore, even after Updates :) "/>
                         	<LineBreak/>
-                        	<Run Text="IMPORTANT:  Requires cellular/internet connection to listen to a each sound for the first time"/>
-                        	<Run Text="."/>
-                        	<Run Text="  Initial press of a sound button will download the audio in the background. Press button again to  play the sound.  &#xA;To save as a Ringtone, PRESS AND HOLD briefly"/>
+                        	<Run Text="To save as a Ringtone, PRESS AND HOLD briefly"/>
+                        	<LineBreak/>
+                        	<Run Text="after playing tone."/>
                         	<LineBreak/>
                         	<Run/>
                         	<LineBreak/>
-                        	<Run Text="Coming soon: Autoplay after initial download&#xA;"/>
+                        	<Run Text="&#xA;"/>
                         </TextBlock>
-                        <StackPanel Orientation="Horizontal" Height="98" Width="456" Margin="0">
-                        	<Button Content="Rate &amp; &#xD;&#xA;Review" Click="Review_Click" Width="140" Height="99"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,1,0" Padding="5,5,5,6" FontSize="18.667"/>
-                        	<Button Content="   Email &#xD;&#xA;Requests" Click="Email_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" Padding="5,5,5,6" FontSize="18.667"/>
-                        	<Button Content="      Get&#xD;&#xA;Tonality 8.1" Click="Paid_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" FontSize="17.333" HorizontalAlignment="Right" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6"/>
+                        <StackPanel Orientation="Horizontal" Height="117" Width="456" Margin="0,11,0,0">
+                        	<Button Content="Rate &amp; &#xA;Review" Click="Review_Click" Width="140" Height="99"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,1,9" Padding="5,5,5,6" FontSize="18.667"/>
+                        	<Button Content="   Email &#xA;Requests" Click="Email_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" Padding="5,5,5,6" FontSize="18.667"/>
+                        	<Button Content="      Get&#xA;Tonality 8.1" Click="Paid_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" FontSize="17.333" HorizontalAlignment="Right" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6"/>
                         </StackPanel>
-                        <Button Content="" Click="Share_Click" Width="90" Height="90" Margin="48,40,280,0">
+                        <Button Content="" Click="Share_Click" Width="90" Height="90" Margin="48,-5,280,0">
                             <Button.Background>
                                 <ImageBrush Stretch="Fill" ImageSource="/Assets/email.png"/>
                             </Button.Background>

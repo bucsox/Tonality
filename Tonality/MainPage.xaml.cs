@@ -25,7 +25,7 @@ namespace Tonality
     {
         public string FilePath { get; set; }
 
-        
+
         #region New code
         private Stream audioStream;
         #endregion
@@ -103,31 +103,35 @@ namespace Tonality
 
                 audioStream = IsolatedStorageFile.GetUserStoreForApplication().OpenFile(data.SavePath, FileMode.Open, FileAccess.Read, FileShare.Read);
 
-                // Apparently MediaElement doesn't like isostore:/
                 AudioPlayer.SetSource(audioStream);
                 AudioPlayer.Play();
-                
+
             }
             else
             {
-                // TODO: the application should check if there is an internet connection available and warn the user if 
+                // TODO: the application should check if there is an internet connection available and warn the user if
                 // it's disconnected. Otherwise it won't pass certification.
                 WebClient client = new WebClient();
                 client.OpenReadCompleted += (senderClient, args) =>
-                
                 {
                     using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(data.SavePath))
                     {
+                        if (args == null || args.Cancelled || args.Error != null)
+                        {
+                            MessageBox.Show("Please check your network/cellular connection. If you have a network connection, verify that you can reach drobox.com");
+                            return;
+                        }
+
                         args.Result.Seek(0, SeekOrigin.Begin);
                         args.Result.CopyTo(fileStream);
-                        
-                        
-                        
-                        
+                        AudioPlayer.SetSource(fileStream);
+                        AudioPlayer.Play();
+
+
                     }
                 };
                 client.OpenReadAsync(new Uri(data.FilePath));
-                
+
             }
             #endregion
 
@@ -153,24 +157,24 @@ namespace Tonality
             EmailComposeTask EmailComposeTask = new EmailComposeTask();
             EmailComposeTask.To = "BBSounds@outlook.com";
             EmailComposeTask.Show();
-            
+
         }
 
         private void Share_Click(object sender, EventArgs e)
-		{		
-			EmailComposeTask task = new EmailComposeTask();
-			task.Subject = "Check out this app";
-			task.Body = "Check out Tonality for free popular notification sounds http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77";
-			task.Show();
-		}
+        {
+            EmailComposeTask task = new EmailComposeTask();
+            task.Subject = "Check out this app";
+            task.Body = "Check out Tonality for free popular notification sounds http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77";
+            task.Show();
+        }
 
-		private void fb_Click(object sender, EventArgs e)
-		{
-			ShareLinkTask shareLinkTask = new ShareLinkTask();
-			shareLinkTask.LinkUri = new Uri( "http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77", UriKind.Absolute);
-			shareLinkTask.Message = "Check out Tonality";
-			shareLinkTask.Show();
-		}
+        private void fb_Click(object sender, EventArgs e)
+        {
+            ShareLinkTask shareLinkTask = new ShareLinkTask();
+            shareLinkTask.LinkUri = new Uri("http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77", UriKind.Absolute);
+            shareLinkTask.Message = "Check out Tonality";
+            shareLinkTask.Show();
+        }
 
         private void twitter_Click(object sender, EventArgs e)
         {
@@ -185,7 +189,7 @@ namespace Tonality
             WebBrowserTask weblinktask = new WebBrowserTask();
 
             weblinktask.Uri = new Uri("http://www.windowsphone.com/en-us/store/app/tonality-8-1/0940431a-2eec-4d19-bed6-41379538da76", UriKind.Absolute);
-            
+
             weblinktask.Show();
         }
 
@@ -196,7 +200,7 @@ namespace Tonality
         private void AdControl_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Ad Error : ({0}) {1}", e.ErrorCode, e.Error);
-        } 
+        }
 
     }
 }

@@ -31,22 +31,28 @@ namespace Tonality.ViewModels
         #endregion
         public RelayCommand<string> SaveSoundAsRingtone { get; set; }
 
-
+       
         private void ExecuteSaveSoundAsRingtone(string soundPath)
         {
+            if (IsDownloaded == false)
+            {
+                MessageBox.Show("Will not download until you short press atleast once to play sound");
+                return;
+            }
             App.Current.RootVisual.Dispatcher.BeginInvoke(() =>
             {
+
                 SaveRingtoneTask task = new SaveRingtoneTask();
-                #region New code
-                // TODO: disable ringtone saving if the file isn't downloaded, otherwise the app will crash.
                 task.Source = new Uri("isostore:/" + this.SavePath);
-                #endregion
                 task.DisplayName = this.Title;
                 task.Show();
             }
-                );
-        }   
-
+               );
+        }
+          
+            
+        
+               
         public SoundData()
         {
             SaveSoundAsRingtone = new RelayCommand<string>(ExecuteSaveSoundAsRingtone);
