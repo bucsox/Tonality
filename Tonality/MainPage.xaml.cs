@@ -91,17 +91,7 @@ namespace Tonality
 
             if (data.IsDownloaded)
             {
-                if (audioStream != null)
-                {
-                    audioStream.Close();
-                    audioStream.Dispose();
-                }
-
-                audioStream = IsolatedStorageFile.GetUserStoreForApplication().OpenFile(data.SavePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-
-                AudioPlayer.SetSource(audioStream);
-                AudioPlayer.Play();
-
+                this.PlaySound(IsolatedStorageFile.GetUserStoreForApplication().OpenFile(data.SavePath, FileMode.Open, FileAccess.Read, FileShare.Read));
             }
             else
             {
@@ -111,37 +101,25 @@ namespace Tonality
                 }
                 else
                 {
-
                     WebClient client = new WebClient();
+
                     client.OpenReadCompleted += (senderClient, args) =>
                     {
                         using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(data.SavePath))
                         {
-                            if (args == null || args.Cancelled || args.Error != null)
-                            {
-                                MessageBox.Show("Please check your network/cellular connection. If you have a network connection, verify that you can reach drobox.com");
-                                return;
-                            }
-
                             args.Result.Seek(0, SeekOrigin.Begin);
                             args.Result.CopyTo(fileStream);
-                            AudioPlayer.SetSource(fileStream);
-                            AudioPlayer.Play();
 
-
+                            this.PlaySound(fileStream);
                         }
                     };
+
                     client.OpenReadAsync(new Uri(data.FilePath));
                 }
             }
-            
-
 
             selector.SelectedItem = null;
-
         }
-
-
 
         private void Review_Click(object sender, RoutedEventArgs e)
         {
@@ -194,11 +172,24 @@ namespace Tonality
         {
             System.Diagnostics.Debug.WriteLine("Adcontrol new ad received");
         }
+
         private void AdControl_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Ad Error : ({0}) {1}", e.ErrorCode, e.Error);
         }
 
+        private void PlaySound(FileStream soundStream)
+        {
+            if (this.audioStream != null)
+            {
+                this.audioStream.Close();
+                this.audioStream.Dispose();
+            }
+
+            audioStream = soundStream;
+            AudioPlayer.SetSource(soundStream);
+            AudioPlayer.Play();
+        }
     }
 }
 
