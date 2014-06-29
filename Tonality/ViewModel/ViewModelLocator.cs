@@ -15,6 +15,8 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Tonality.Services;
+using Tonality.Services.Interfaces;
 
 namespace Tonality.ViewModel
 {
@@ -31,16 +33,14 @@ namespace Tonality.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                // TODO: register a INetworkService that runs in desing mode if you want
+            }
+            else
+            {
+                SimpleIoc.Default.Register<INetworkService, NetworkService>();
+            }
 
             SimpleIoc.Default.Register<MainViewModel>();
         }
