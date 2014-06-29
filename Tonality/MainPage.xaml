@@ -21,7 +21,7 @@
             <Setter Property="TitleTemplate">
                 <Setter.Value>
                     <DataTemplate>
-                        <Border Width="500" Height="27" Margin="-22,0,0,0">
+                        <Border Width="500" Height="27" Margin="0,0,0,0">
                             <TextBlock Text="Tonality"/>
                         </Border>
                     </DataTemplate>
@@ -101,32 +101,30 @@
         <StaticResource ResourceKey="PhoneForegroundBrush"/>
     </phone:PhoneApplicationPage.Foreground>
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot">
+    	<Grid.Background>
+    		        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<LinearGradientBrush.RelativeTransform>
+        				<CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-90"/>
+        			</LinearGradientBrush.RelativeTransform>
+        			<GradientStop Color="#FF8D8DA0" Offset="1"/>
+        			<GradientStop Color="#FF5D5D80"/>
+        		</LinearGradientBrush>
+    	</Grid.Background>
 
         <MediaElement x:Name="AudioPlayer" AutoPlay="True" 
 			Volume="1" />
 
         <!--Pivot Control-->
-        <phone:Pivot>
-            <controls:Pivot.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-90"/>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF8D8DA0" Offset="1"/>
-                    <GradientStop Color="#FF5D5D80"/>
-                </LinearGradientBrush>
-            </controls:Pivot.Background>
-
+        <phone:Pivot Margin="0">
             <!--Pivot item one-->
-            <phone:PivotItem Header="Welcome" FontFamily="Trebuchet MS">
+            <phone:PivotItem Header="Welcome" FontFamily="Trebuchet MS" Margin="24,28,24,0">
                 <!--Double line list with text wrapping-->
-                <ScrollViewer HorizontalAlignment="Left" Height="774" VerticalAlignment="Top" Width="456" Margin="0,-24,0,-143" FontFamily="Segoe WP">
+                <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Segoe WP" Margin="0,-24,0,0">
                     <!--Double line list with text wrapping-->
-                    <StackPanel
-            			Height="750" Width="456" Margin="0,-24,0,0">
+                    <StackPanel>
                         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFF0EAEA"
-            				VerticalAlignment="Top" Height="320" Width="456" Margin="0,0,0,4" FontSize="18.667" FontFamily="Segoe WP" FontWeight="Bold" TextAlignment="Center">
+            				VerticalAlignment="Top" Margin="0,0,0,4" FontSize="18.667" FontFamily="Segoe WP" FontWeight="Bold" TextAlignment="Center">
                         	<Run Text="Tonality 4.0 brings isolated storage. Sound files are no longer packaged with app."/>
                         	<Run FontSize="21.333"/>
                         	<LineBreak/>
@@ -143,33 +141,42 @@
                         	<LineBreak/>
                         	<Run Text="&#xA;"/>
                         </TextBlock>
-                        <StackPanel Orientation="Horizontal" Height="117" Width="456" Margin="0,11,0,0">
-                            <Button Content="Rate &amp; &#xA;Review" Click="Review_Click" Width="140" Height="99"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,1,9" Padding="5,5,5,6" FontSize="18.667"/>
-                            <Button Content="   Email &#xA;Requests" Click="Email_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" Padding="5,5,5,6" FontSize="18.667"/>
-                            <Button Content="      Get&#xA;Tonality 8.1" Click="Paid_Click" Width="140" Height="99" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Margin="15,0,0,0" FontSize="17.333" HorizontalAlignment="Right" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6"/>
-                        </StackPanel>
-                        <Button Content="" Click="Share_Click" Width="90" Height="90" Margin="48,-5,280,0">
-                            <Button.Background>
-                                <ImageBrush Stretch="Fill" ImageSource="/Assets/email.png"/>
-                            </Button.Background>
-                        </Button>
-                        <Button Content="" Click="twitter_Click" Width="90" Height="90" Margin="183,-90,183,0">
-                            <Button.Background>
-                                <ImageBrush Stretch="Fill" ImageSource="/Assets/twitter.png"/>
-                            </Button.Background>
-                        </Button>
-                        <Button Content="" Click="fb_Click" Width="90" Height="90" Margin="308,-90,58,0">
-                            <Button.Background>
-                                <ImageBrush Stretch="Fill" ImageSource="/Assets/fb.png"/>
-                            </Button.Background>
-                        </Button>
+                        <Grid Margin="0,11,0,0">
+                        	<Grid.RowDefinitions>
+                        		<RowDefinition/>
+                        		<RowDefinition/>
+                        	</Grid.RowDefinitions>
+                        	<Grid.ColumnDefinitions>
+                        		<ColumnDefinition/>
+                        		<ColumnDefinition/>
+                        		<ColumnDefinition/>
+                        	</Grid.ColumnDefinitions>
+                        	<Button Content="Rate &amp; &#xA;Review" Click="Review_Click"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" Padding="5,5,5,6" FontSize="18.667"/>
+                        	<Button Content="   Email &#xA;Requests" Click="Email_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Padding="5,5,5,6" FontSize="18.667" Grid.Column="1"/>
+                        	<Button Content="      Get&#xA;Tonality 8.1" Click="Paid_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" FontSize="17.333" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6" Grid.Column="2"/>
+                        	<Button Content="" Click="Share_Click" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="100">
+                        		<Button.Background>
+                        			<ImageBrush Stretch="Fill" ImageSource="/Assets/email.png"/>
+                        		</Button.Background>
+                        	</Button>
+                        	<Button Content="" Click="twitter_Click" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100">
+                        		<Button.Background>
+                        			<ImageBrush Stretch="Fill" ImageSource="/Assets/twitter.png"/>
+                        		</Button.Background>
+                        	</Button>
+                        	<Button Content="" Click="fb_Click" Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="100">
+                        		<Button.Background>
+                        			<ImageBrush Stretch="Fill" ImageSource="/Assets/fb.png"/>
+                        		</Button.Background>
+                        	</Button>
+                        </Grid>
                     </StackPanel>
 
                 </ScrollViewer>
 
             </phone:PivotItem>
 
-            <phone:PivotItem Header="{Binding NewAdds.Title}" Margin="12,28,12,0">
+            <phone:PivotItem Header="{Binding NewAdds.Title}" Margin="24,28,24,0">
                 <!--Double line list with text wrapping-->
                 <phone:LongListSelector x:Name="LongList6" Margin="23,0,-15,80" 
             		ItemsSource="{Binding Android.Items}"
@@ -183,7 +190,7 @@
             </phone:PivotItem>
 
 
-            <phone:PivotItem Header="{Binding Android.Title}" Margin="12,28,12,0">
+            <phone:PivotItem Header="{Binding Android.Title}" Margin="24,28,24,0">
 
                 <phone:LongListSelector x:Name="LongList4" Margin="23,0,-15,80" 
             		ItemsSource="{Binding Android.Items}"
@@ -194,7 +201,7 @@
                                         />
             </phone:PivotItem>
 
-            <phone:PivotItem Header="{Binding Messengers.Title}">
+            <phone:PivotItem Header="{Binding Messengers.Title}" Margin="24,28,24,0">
                 <!--Double line list with text wrapping-->
                 <phone:LongListSelector x:Name="LongList2" Margin="23,0,-15,80" 
 					ItemsSource="{Binding Messengers.Items}"
@@ -208,7 +215,7 @@
                                         />
             </phone:PivotItem>
 
-            <phone:PivotItem Header="{Binding Software.Title}">
+            <phone:PivotItem Header="{Binding Software.Title}" Margin="24,28,24,0">
                 <!--Double line list with text wrapping-->
                 <phone:LongListSelector x:Name="LongList1" Margin="23,0,-15,80" 
 					ItemsSource="{Binding Software.Items}"
@@ -222,7 +229,7 @@
                                         />
             </phone:PivotItem>
 
-            <phone:PivotItem Header="{Binding Entertainment.Title}">
+            <phone:PivotItem Header="{Binding Entertainment.Title}" Margin="24,28,24,0">
                 <!--Double line list with text wrapping-->
                 <phone:LongListSelector x:Name="LongList5" Margin="0,-8,-12,80" 
 					ItemsSource="{Binding Entertainment.Items}"
@@ -237,7 +244,7 @@
                                       />
             </phone:PivotItem>
 
-            <phone:PivotItem Header="{Binding GamesMsc.Title}">
+            <phone:PivotItem Header="{Binding GamesMsc.Title}" Margin="24,28,24,0">
                 <!--Double line list with text wrapping-->
                 <phone:LongListSelector x:Name="LongList3" Margin="23,0,-15,80" 
 					ItemsSource="{Binding GamesMsc.Items}"
