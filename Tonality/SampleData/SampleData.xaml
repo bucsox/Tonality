@@ -54,7 +54,7 @@
     <vm:SoundModel.GamesMsc>
         <vm:SoundGroup Title="GamesMsc Sample">
             <vm:SoundGroup.Items>
-                <vm:SoundData Title="GamesMsc 1 Games Msc" FilePath="GamesMsc.wav" />
+                <vm:SoundData Title="Blackberry berry Msc" FilePath="GamesMsc.wav" />
                 <vm:SoundData Title="GamesMsc test 2" FilePath="GamesMsc.wav" />
                 <vm:SoundData Title="GamesMsc 3" FilePath="GamesMsc.wav" />
                 <vm:SoundData Title="GamesMsc 4" FilePath="GamesMsc.wav" />
@@ -70,9 +70,9 @@
     <vm:SoundModel.Android>
         <vm:SoundGroup Title="Android Sample">
             <vm:SoundGroup.Items>
-                <vm:SoundData Title="GamesMsc 1 Games Msc" FilePath="GamesMsc.wav" />
-                <vm:SoundData Title="GamesMsc test 2" FilePath="GamesMsc.wav" />
-                <vm:SoundData Title="GamesMsc 3" FilePath="GamesMsc.wav" />
+                <vm:SoundData Title="Blackberry 3Bell Msc" FilePath="GamesMsc.wav" />
+                <vm:SoundData Title="Blackberry spirit 2" FilePath="GamesMsc.wav" />
+                <vm:SoundData Title="Blackberry spirit 2" FilePath="GamesMsc.wav" />
                 <vm:SoundData Title="GamesMsc 4" FilePath="GamesMsc.wav" />
                 <vm:SoundData Title="GamesMsc 4" FilePath="GamesMsc.wav" />
                 <vm:SoundData Title="GamesMsc 4" FilePath="GamesMsc.wav" />

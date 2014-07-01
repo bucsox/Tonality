@@ -4,7 +4,7 @@
   <Languages xmlns="">
     <Language code="qps-ploc" />
   </Languages>
-  <App xmlns="" ProductID="{2d35d041-8e36-47d6-8ae8-6c5d4d47be8a}" Title="Tonality" RuntimeType="Silverlight" Version="4.0.8.0" Genre="apps.normal" Author="ChuckJ" Description="Tonality is a free toast notification and ringtone sound app." Publisher="ChuckJ" PublisherID="{85f15f9e-1af1-4d95-ab2c-b75d594b2c11}">
+  <App xmlns="" ProductID="{2d35d041-8e36-47d6-8ae8-6c5d4d47be8a}" Title="Tonality" RuntimeType="Silverlight" Version="4.0.9.1" Genre="apps.normal" Author="ChuckJ" Description="Tonality is a free toast notification and ringtone sound app." Publisher="ChuckJ" PublisherID="{85f15f9e-1af1-4d95-ab2c-b75d594b2c11}">
     <IconPath IsRelative="true" IsResource="false">Soundwave1.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
