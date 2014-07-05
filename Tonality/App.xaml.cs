@@ -8,6 +8,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Tonality.Resources;
 using Tonality.ViewModels;
+using BugSense;
+using BugSense.Core.Model;
 
 namespace Tonality
 {
@@ -63,8 +65,14 @@ namespace Tonality
         /// </summary>
         public App()
         {
+            {
+                // Initialize BugSense
+                BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "6d252536");
+                // Other specific operations
+            }
+
             // Global handler for uncaught exceptions.
-            UnhandledException += Application_UnhandledException;
+            //UnhandledException += Application_UnhandledException;
 
             // Standard XAML initialization
             InitializeComponent();
@@ -96,6 +104,7 @@ namespace Tonality
             }
         }
 
+        
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -117,12 +126,15 @@ namespace Tonality
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            BugSenseHandler.Instance.CloseSession();
+            
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            BugSenseHandler.Instance.CloseSession();
             // Ensure that required application state is persisted here.
         }
 

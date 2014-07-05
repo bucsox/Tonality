@@ -139,14 +139,14 @@ namespace Tonality
         {
             EmailComposeTask task = new EmailComposeTask();
             task.Subject = "Check out this app";
-            task.Body = "Check out Tonality for free popular notification sounds http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77";
+            task.Body = "Check out Tonality for free popular notification sounds http://www.windowsphone.com/s?appid=7ac59477-9b21-41a7-9433-9f9f602e8f77";
             task.Show();
         }
 
         private void fb_Click(object sender, EventArgs e)
         {
             ShareLinkTask shareLinkTask = new ShareLinkTask();
-            shareLinkTask.LinkUri = new Uri("http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77", UriKind.Absolute);
+            shareLinkTask.LinkUri = new Uri("http://www.windowsphone.com/s?appid=7ac59477-9b21-41a7-9433-9f9f602e8f77", UriKind.Absolute);
             shareLinkTask.Message = "Check out Tonality";
             shareLinkTask.Show();
         }
@@ -154,9 +154,18 @@ namespace Tonality
         private void twitter_Click(object sender, EventArgs e)
         {
             ShareLinkTask shareLinkTask = new ShareLinkTask();
-            shareLinkTask.LinkUri = new Uri("http://www.windowsphone.com/en-us/store/app/tonality/7ac59477-9b21-41a7-9433-9f9f602e8f77", UriKind.Absolute);
+            shareLinkTask.LinkUri = new Uri("http://www.windowsphone.com/s?appid=7ac59477-9b21-41a7-9433-9f9f602e8f77", UriKind.Absolute);
             shareLinkTask.Message = "Check out Tonality!";
             shareLinkTask.Show();
+        }
+
+        private void TonalityRedux_Click(object sender, EventArgs e)
+        {
+            WebBrowserTask weblinktask = new WebBrowserTask();
+
+            weblinktask.Uri = new Uri("http://www.windowsphone.com/s?appid=bc0a81ec-f48e-4f02-84f0-4a041afa86da", UriKind.Absolute);
+
+            weblinktask.Show();
         }
 
         private void Paid_Click(object sender, EventArgs e)

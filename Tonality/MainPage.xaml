@@ -130,11 +130,13 @@
                     <!--Double line list with text wrapping-->
                     <StackPanel>
                         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFF0EAEA"
-            				VerticalAlignment="Top" Margin="0,0,0,4" FontSize="18.667" FontFamily="Segoe WP" FontWeight="Bold" TextAlignment="Center" Text="Tonality 4.0 brings isolated storage. Sound files are no longer packaged with app.
-
-IMPORTANT:  To listen to a sound for the very first time you will need a cellular/network connection. If you have a network connection and still have issues, check that you can reach http://dropbox.com. Dropbox is the host of these files.&#xA;Once you play a sound, its stored in the isostore, even after Updates :) 
-To save as a Ringtone, PRESS AND HOLD briefly
-after playing tone."/>
+            				VerticalAlignment="Top" Margin="0,0,0,4" FontSize="20" FontFamily="Segoe WP" FontWeight="SemiBold" TextAlignment="Center" Height="280">
+                        	<Run Text="If you experience issues please email me with the button below. Also, swipe to the right or click below and you can download the original Tonality!"/>
+                        	<LineBreak/>
+                        	<Run/>
+                        	<LineBreak/>
+                        	<Run Text="Important: You must have network access to listen to each sound for the first time. After that, you will be fine. Also, check to see that you can reach www.dropbox.com. Press once to listen to sound. Hold to save as Ringtone."/>
+                        </TextBlock>
                         <Grid Margin="0,11,0,0">
                         	<Grid.RowDefinitions>
                         		<RowDefinition/>
@@ -147,7 +149,7 @@ after playing tone."/>
                         	</Grid.ColumnDefinitions>
                         	<Button Content="Rate &amp; &#xA;Review" Click="Review_Click"   Background="{StaticResource ResourceKey=PhoneAccentBrush}" Padding="5,5,5,6" FontSize="18.667"/>
                         	<Button Content="   Email &#xA;Requests" Click="Email_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" Padding="5,5,5,6" FontSize="18.667" Grid.Column="1"/>
-                        	<Button Content="      Get&#xA;Tonality 8.1" Click="Paid_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" FontSize="17.333" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6" Grid.Column="2"/>
+                            <Button Content="Original &#xA;Tonality" Click="TonalityRedux_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" FontSize="17.333" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="5,5,5,6" Grid.Column="2"/>
                         	<Button Content="" Click="Share_Click" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="100">
                         		<Button.Background>
                         			<ImageBrush Stretch="Fill" ImageSource="/Assets/email.png"/>
@@ -261,6 +263,28 @@ after playing tone."/>
                     JumpListStyle="{StaticResource imageJumpListStyle}"                    />
          </controls:PivotItem>
 
+            <controls:PivotItem Header="Versions" FontFamily="Trebuchet MS" Margin="24,28,24,0">
+                <!--Double line list with text wrapping-->
+                <StackPanel Margin="0,-24,0,0">
+                    <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Segoe WP" Height="205" >
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#FFF0EAEA"
+                    		VerticalAlignment="Top" Margin="0,0,0,4" FontSize="20" FontFamily="Segoe WP" FontWeight="SemiBold" TextAlignment="Center" Height="360" Text="Tonality Redux: (free) If you experience issues using Tonality, you can go back to the original. App size will be large but you will not experience any crashing. Download below."/>
+                    </ScrollViewer>
+                    <Grid Margin="0,11,10,0">
+                        <Button Content="Download Tonality Redux" Click="TonalityRedux_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" FontSize="17.333" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="0,5,0,8" Grid.ColumnSpan="3" Margin="10,0,0,0"/>
+                    </Grid>
+                    <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Bottom" FontFamily="Segoe WP" Height="167" Width="422">
+                        <TextBlock TextWrapping="Wrap" FontFamily="Segoe WP" FontSize="21"  TextAlignment="Center">
+                            <Run Text="Tonality 8.1: Paid version of Tonality to save as ringtone AND save sounds to your phone to a folder of your choice!
+                                 
+                                 This version also packages sounds with the app. Smaller app size, isolated storage version coming soon"/>
+                        </TextBlock>
+                    </ScrollViewer>
+                    <Grid Margin="0,11,10,0">
+                        <Button Content="Download Tonality 8.1" Click="Paid_Click" Background="{StaticResource ResourceKey=PhoneAccentBrush}" FontSize="17.333" FontFamily="Segoe WP Semibold" FontWeight="Bold" Padding="0,5,0,8" Grid.ColumnSpan="3" Margin="10,0,0,0"/>
+                    </Grid>
+                </StackPanel>
+            </controls:PivotItem>
 
      </controls:Pivot>
         <UI:AdControl ApplicationId="05af8502-6f46-497b-bdad-5d2278736d9a" AdUnitId="171440" Width="480" IsAutoRefreshEnabled="True" Grid.Row="1" Height="80"/>
