@@ -103,6 +103,14 @@ namespace Tonality
                 {
                     WebClient client = new WebClient();
 
+                    client.DownloadProgressChanged += (senderClient, args) =>
+                        {
+                            Dispatcher.BeginInvoke(() =>
+                                {
+                                    data.DownloadProgress = args.ProgressPercentage;
+                                });
+                        };
+
                     client.OpenReadCompleted += (senderClient, args) =>
                     {
                         using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(data.SavePath))
@@ -111,10 +119,14 @@ namespace Tonality
                             args.Result.CopyTo(fileStream);
 
                             this.PlaySound(fileStream);
+                            data.Status = DownloadStatus.Downloaded;
                         }
+
+                        args.Result.Close();
                     };
 
                     client.OpenReadAsync(new Uri(data.FilePath));
+                    data.Status = DownloadStatus.Downloading;
                 }
             }
 
@@ -161,20 +173,20 @@ namespace Tonality
 
         private void TonalityRedux_Click(object sender, EventArgs e)
         {
-            WebBrowserTask weblinktask = new WebBrowserTask();
+            MarketplaceDetailTask marketTask = new MarketplaceDetailTask();
+            marketTask.ContentIdentifier = "bc0a81ec-f48e-4f02-84f0-4a041afa86da";
+            marketTask.ContentType = MarketplaceContentType.Applications;
 
-            weblinktask.Uri = new Uri("http://www.windowsphone.com/s?appid=bc0a81ec-f48e-4f02-84f0-4a041afa86da", UriKind.Absolute);
-
-            weblinktask.Show();
+            marketTask.Show();
         }
 
         private void Paid_Click(object sender, EventArgs e)
         {
-            WebBrowserTask weblinktask = new WebBrowserTask();
+            MarketplaceDetailTask marketTask = new MarketplaceDetailTask();
+            marketTask.ContentIdentifier = "0940431a-2eec-4d19-bed6-41379538da76";
+            marketTask.ContentType = MarketplaceContentType.Applications;
 
-            weblinktask.Uri = new Uri("http://www.windowsphone.com/en-us/store/app/tonality-8-1/0940431a-2eec-4d19-bed6-41379538da76", UriKind.Absolute);
-
-            weblinktask.Show();
+            marketTask.Show();
         }
 
         private void adcontrol_adrefreshed(object sender, EventArgs e)

@@ -10,6 +10,7 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:Primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
     xmlns:Converters="clr-namespace:Coding4Fun.Toolkit.Controls.Converters;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:ownConverters="clr-namespace:Tonality.Converters"
     x:Class="Tonality.MainPage"
     mc:Ignorable="d"
     d:DataContext="{d:DesignData SampleData/SampleData.xaml}"
@@ -18,7 +19,8 @@
 
     <controls:PhoneApplicationPage.Resources>
 
-    	<Converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+		<ownConverters:DownloadStatusToIconVisibilityConverter x:Key="DownloadStatusToIconVisibilityConverter"/>
+		<ownConverters:DownloadStatusToProgressBarVisibilityConverter x:Key="DownloadStatusToProgressBarVisibilityConverter"/>
 
         <Style TargetType="controls:Pivot">
             <Setter Property="TitleTemplate">
@@ -46,8 +48,8 @@
         			Margin="0,5,6,0" Height="100" Width="140"
         			toolkit:TiltEffect.IsTiltEnabled="True">
         			<TextBlock Text="{Binding Title}" FontSize="19" TextWrapping="Wrap" Width="140"  FontFamily="Tahoma" />
-        			<Image Source="/Assets/tiles/soundwave1.png" Width="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,6,6" Visibility="{Binding IsDownloaded, Converter={StaticResource BooleanToVisibilityConverter}}" />
-        			<ProgressBar Height="12" VerticalAlignment="Bottom" Padding="0,0,0,-6" Margin="0" Foreground="{StaticResource PhoneForegroundBrush}"/>
+        			<Image Source="/Assets/tiles/soundwave1.png" Width="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,6,6" Visibility="{Binding Status, Converter={StaticResource DownloadStatusToIconVisibilityConverter}}" />
+        			<ProgressBar Height="12" VerticalAlignment="Bottom" Padding="0" Margin="0" Foreground="{StaticResource PhoneForegroundBrush}" Value="{Binding DownloadProgress}" Visibility="{Binding Status, Converter={StaticResource DownloadStatusToProgressBarVisibilityConverter}}"/>
         		</Grid>
         	</StackPanel>
         </DataTemplate>

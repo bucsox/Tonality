@@ -25,7 +25,41 @@ namespace Tonality.ViewModels
         {
             get
             {
-                return IsolatedStorageFile.GetUserStoreForApplication().FileExists(this.SavePath);
+                return IsolatedStorageFile.GetUserStoreForApplication().FileExists(this.SavePath) && this.Status == DownloadStatus.Downloaded;
+            }
+        }
+
+        private DownloadStatus status;
+        public DownloadStatus Status
+        {
+            get
+            {
+                return this.status;
+            }
+            set
+            {
+                if (this.status != value)
+                {
+                    this.status = value;
+                    this.RaisePropertyChanged(() => this.Status);
+                }
+            }
+        }
+
+        private int downloadProgress;
+        public int DownloadProgress
+        {
+            get
+            {
+                return this.downloadProgress;
+            }
+            set
+            {
+                if (this.downloadProgress != value)
+                {
+                    this.downloadProgress = value;
+                    this.RaisePropertyChanged(() => this.DownloadProgress);
+                }
             }
         }
         #endregion
@@ -56,6 +90,8 @@ namespace Tonality.ViewModels
         public SoundData()
         {
             SaveSoundAsRingtone = new RelayCommand<string>(ExecuteSaveSoundAsRingtone);
+            this.Status = DownloadStatus.NotDownloaded;
+            this.DownloadProgress = 0;
         }
 
     }
