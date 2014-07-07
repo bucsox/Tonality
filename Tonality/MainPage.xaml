@@ -41,7 +41,7 @@
 
                 <Grid Background="{StaticResource PhoneAccentBrush}"
         			Margin="0,5,6,0" Height="100" Width="140"
-                      >
+                       toolkit:TiltEffect.IsTiltEnabled="True">
                     <Grid VerticalAlignment="Bottom"
         				HorizontalAlignment="Right"
         				Width="20"
