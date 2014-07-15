@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows;
 using System.IO.IsolatedStorage;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Tonality.ViewModels
 {
@@ -63,6 +64,7 @@ namespace Tonality.ViewModels
             }
         }
         #endregion
+        [XmlIgnore]
         public RelayCommand<string> SaveSoundAsRingtone { get; set; }
 
        

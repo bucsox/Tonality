@@ -13,7 +13,6 @@
     xmlns:ownConverters="clr-namespace:Tonality.Converters"
     x:Class="Tonality.MainPage"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignData SampleData/SampleData.xaml}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
@@ -59,7 +58,7 @@
         		<Border Background="Transparent" BorderBrush="Transparent" BorderThickness="1"	
         			Width="400" Height="83" Margin="0,-29,0,0" 				 
         			HorizontalAlignment="Left">
-        			<TextBlock Text="{Binding Groups}" 
+        			<TextBlock Text="{Binding Name}" 
         				Foreground="White"
         				FontSize="53.333" FontWeight="Bold"
         				Padding="3"                                
@@ -78,7 +77,7 @@
         		<Setter.Value>
         			<DataTemplate>
         				<Border Background="{StaticResource PhoneAccentBrush}" Width="150" Height="100" Margin="6" >
-        					<TextBlock Text="{Binding Groups}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" Margin="0,2,-5,-4" TextWrapping="Wrap" FontSize="20" Padding="5" 
+        					<TextBlock Text="{Binding Name}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" Margin="0,2,-5,-4" TextWrapping="Wrap" FontSize="20" Padding="5" 
         						Foreground="white" Width="148" Height="80"/>
         				</Border>
         			</DataTemplate>
@@ -87,6 +86,9 @@
         </Style>
 
  </controls:PhoneApplicationPage.Resources>
+	<controls:PhoneApplicationPage.DataContext>
+		<Binding Path="ViewModel" Source="{StaticResource Locator}"/>
+	</controls:PhoneApplicationPage.DataContext>
 
     <controls:PhoneApplicationPage.FontFamily>
         <StaticResource ResourceKey="PhoneFontFamilyNormal"/>
@@ -179,7 +181,7 @@
                 <!--Double line list with text wrapping-->
 				<controls:LongListSelector x:Name="LongList6"
 					Margin="-3,0,-20,0"                        
-					ItemsSource="{Binding Android.Items}"
+					ItemsSource="{Binding NewAdds.Items}"
 					LayoutMode="Grid"
 					GridCellSize="145,100"
 					ItemTemplate="{StaticResource SoundTileDataTemplate}"

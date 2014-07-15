@@ -10,6 +10,7 @@ using Tonality.Resources;
 using Tonality.ViewModels;
 using BugSense;
 using BugSense.Core.Model;
+using Tonality.ViewModel;
 
 namespace Tonality
 {
@@ -34,25 +35,6 @@ namespace Tonality
             }
         }
          */
-
-        private static SoundModel viewModel = null;
-
-        public static SoundModel ViewModel
-        {
-            get
-            {
-                if (viewModel == null)
-                {
-                    viewModel = new SoundModel();
-                    viewModel.LoadData();
-                }
-                    
-
-                return viewModel;
-            }
-        }
-
-
 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
@@ -116,16 +98,18 @@ namespace Tonality
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
             // Ensure that application state is restored appropriately
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
+            //if (!App.ViewModel.IsDataLoaded)
+            //{
+            //    App.ViewModel.LoadData();
+            //}
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            ((ViewModelLocator)Application.Current.Resources["Locator"]).ViewModel.SaveData();
+
             BugSenseHandler.Instance.CloseSession();
             
         }
@@ -134,6 +118,8 @@ namespace Tonality
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            ((ViewModelLocator)Application.Current.Resources["Locator"]).ViewModel.SaveData();
+
             BugSenseHandler.Instance.CloseSession();
             // Ensure that required application state is persisted here.
         }

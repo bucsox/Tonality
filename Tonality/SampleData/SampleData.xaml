@@ -28,7 +28,7 @@
     <vm:SoundModel.Messengers>
         <vm:SoundGroup Title="Messengers Sample">
             <vm:SoundGroup.Items>
-                <vm:SoundData Title="Messengers 1" Groups="Testing" FilePath="Messengers.wav" />
+                <vm:SoundData Title="Messengers 1" FilePath="Messengers.wav" />
                 <vm:SoundData Title="Messengers 2" FilePath="Messengers.wav" />
                 <vm:SoundData Title="Messengers 1" FilePath="Messengers.wav" />
                 <vm:SoundData Title="Messengers 2" FilePath="Messengers.wav" />
@@ -41,7 +41,7 @@
     <vm:SoundModel.Entertainment>
         <vm:SoundGroup Title="Entertainment Sample">
             <vm:SoundGroup.Items>
-                <vm:SoundData Title="Entertainment 1"  Groups="Testing" FilePath="Entertainment.wav" />
+                <vm:SoundData Title="Entertainment 1"  FilePath="Entertainment.wav" />
                 <vm:SoundData Title="Entertainment 2"   FilePath="Entertainment.wav" />
                 <vm:SoundData Title="Entertainment 3"   FilePath="Entertainment.wav" />
                 <vm:SoundData Title="Entertainment 1"   FilePath="Entertainment.wav" />
