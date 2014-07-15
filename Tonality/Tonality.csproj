@@ -164,6 +164,13 @@
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Content Include="Xmls\Android.xml" />
+    <Content Include="Xmls\Entertainment.xml" />
+    <Content Include="Xmls\GamesMsc.xml" />
+    <Content Include="Xmls\Groups.xml" />
+    <Content Include="Xmls\Messengers.xml" />
+    <Content Include="Xmls\NewAdds.xml" />
+    <Content Include="Xmls\Software.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="BugSense-WP8">

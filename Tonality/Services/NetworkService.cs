@@ -1,4 +1,6 @@
-﻿using Tonality.Services.Interfaces;
+﻿using Microsoft.Phone.Net.NetworkInformation;
+using System;
+using Tonality.Services.Interfaces;
 using Windows.Networking.Connectivity;
 
 namespace Tonality.Services
@@ -9,14 +11,21 @@ namespace Tonality.Services
         {
             get
             {
-                ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
-
-                if (profile == null)
+                if (Environment.OSVersion.Version.Minor >= 10)
                 {
-                    return false;
-                }
+                    ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
 
-                return profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+                    if (profile == null)
+                    {
+                        return false;
+                    }
+
+                    return profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+                }
+                else
+                {
+                    return NetworkInterface.GetIsNetworkAvailable();
+                }
             }
         }
     }

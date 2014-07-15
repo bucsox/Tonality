@@ -17,6 +17,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using Tonality.Services;
 using Tonality.Services.Interfaces;
+using Tonality.ViewModels;
 
 namespace Tonality.ViewModel
 {
@@ -43,6 +44,7 @@ namespace Tonality.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<SoundModel>();
         }
 
         public MainViewModel Main
@@ -52,7 +54,17 @@ namespace Tonality.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
+        public SoundModel ViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SoundModel>();
+            }
+        }
+
+
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

@@ -33,18 +33,14 @@ namespace Tonality
         {
             InitializeComponent();
 
-            SoundModel svm = new SoundModel();
-            svm.LoadData();
-            this.LongList1.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Software.Items);
-            this.LongList2.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Messengers.Items);
-            this.LongList3.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.GamesMsc.Items);
-            this.LongList4.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Android.Items);
-            this.LongList5.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.Entertainment.Items);
-            this.LongList6.ItemsSource = CustomKeyGroup<SoundData>.GetSoundGroups(svm.NewAdds.Items);
-
-            // Set the data context of the listbox control to the sample data
-            DataContext = App.ViewModel;
-
+            // SoundModel svm = new SoundModel();
+            // svm.LoadData();
+            //this.LongList1.ItemsSource = Locator.Items;
+            //this.LongList2.ItemsSource = svm.Messengers.Items;
+            //this.LongList3.ItemsSource = svm.GamesMsc.Items;
+            //this.LongList4.ItemsSource = svm.Android.Items;
+            //this.LongList5.ItemsSource = svm.Entertainment.Items;
+            //this.LongList6.ItemsSource = svm.NewAdds.Items;
         }
 
 
@@ -68,10 +64,10 @@ namespace Tonality
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
+            //if (!App.ViewModel.IsDataLoaded)
+            //{
+            //    App.ViewModel.LoadData();
+            //}
         }
 
         private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -105,27 +101,29 @@ namespace Tonality
 
                     client.DownloadProgressChanged += (senderClient, args) =>
                         {
+                            SoundData passedData = (SoundData)args.UserState;
                             Dispatcher.BeginInvoke(() =>
                                 {
-                                    data.DownloadProgress = args.ProgressPercentage;
+                                    passedData.DownloadProgress = args.ProgressPercentage;
                                 });
                         };
 
                     client.OpenReadCompleted += (senderClient, args) =>
                     {
-                        using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(data.SavePath))
+                        SoundData passedData = (SoundData)args.UserState;
+                        using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(passedData.SavePath))
                         {
                             args.Result.Seek(0, SeekOrigin.Begin);
                             args.Result.CopyTo(fileStream);
 
                             this.PlaySound(fileStream);
-                            data.Status = DownloadStatus.Downloaded;
+                            passedData.Status = DownloadStatus.Downloaded;
                         }
 
                         args.Result.Close();
                     };
 
-                    client.OpenReadAsync(new Uri(data.FilePath));
+                    client.OpenReadAsync(new Uri(data.FilePath), data);
                     data.Status = DownloadStatus.Downloading;
                 }
             }
