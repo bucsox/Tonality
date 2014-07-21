@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 
 namespace Tonality.ViewModels
 {
-    public class SoundData : ViewModelBase
+    public class SoundData : ViewModelBase, IEquatable<SoundData>
     {
         public string Title { get; set; }
         public string FilePath { get; set; }
@@ -94,6 +94,46 @@ namespace Tonality.ViewModels
             SaveSoundAsRingtone = new RelayCommand<string>(ExecuteSaveSoundAsRingtone);
             this.Status = DownloadStatus.NotDownloaded;
             this.DownloadProgress = 0;
+        }
+
+        public override bool Equals(object obj)
+        {
+            SoundData other = obj as SoundData;
+
+            if (obj == null)
+            {
+                return false;
+            }
+
+            return this.Equals(other);
+        }
+
+        public bool Equals(SoundData other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return this.Title.Equals(other.Title);
+        }
+
+        public static bool operator ==(SoundData a, SoundData b)
+        {
+            if (object.ReferenceEquals(a, b)) return true;
+            if (object.ReferenceEquals(a, null)) return false;
+            if (object.ReferenceEquals(b, null)) return false;
+
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(SoundData a, SoundData b)
+        {
+            if (object.ReferenceEquals(a, b)) return false;
+            if (object.ReferenceEquals(a, null)) return true;
+            if (object.ReferenceEquals(b, null)) return true;
+
+            return !a.Equals(b);
         }
 
     }

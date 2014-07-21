@@ -110,17 +110,24 @@ namespace Tonality
 
                     client.OpenReadCompleted += (senderClient, args) =>
                     {
-                        SoundData passedData = (SoundData)args.UserState;
-                        using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(passedData.SavePath))
+                        if (args.Error != null)
                         {
-                            args.Result.Seek(0, SeekOrigin.Begin);
-                            args.Result.CopyTo(fileStream);
-
-                            this.PlaySound(fileStream);
-                            passedData.Status = DownloadStatus.Downloaded;
+                            MessageBox.Show("Error downloading sound", args.Error.Message, MessageBoxButton.OK);
                         }
+                        else
+                        {
+                            SoundData passedData = (SoundData)args.UserState;
+                            using (IsolatedStorageFileStream fileStream = IsolatedStorageFile.GetUserStoreForApplication().CreateFile(passedData.SavePath))
+                            {
+                                args.Result.Seek(0, SeekOrigin.Begin);
+                                args.Result.CopyTo(fileStream);
 
-                        args.Result.Close();
+                                this.PlaySound(fileStream);
+                                passedData.Status = DownloadStatus.Downloaded;
+                            }
+
+                            args.Result.Close();
+                        }
                     };
 
                     client.OpenReadAsync(new Uri(data.FilePath), data);
