@@ -33,7 +33,6 @@ namespace Tonality.ViewModels
 
         public void LoadData()
         {
-            // Load data into the model
             Software = LoadFromXml("Software.xml");
             Messengers = LoadFromXml("Messengers.xml");
             Entertainment = LoadFromXml("Entertainment.xml");
@@ -48,24 +47,36 @@ namespace Tonality.ViewModels
 
         private SoundGroup LoadFromXml(string xmlName)
         {
-            Stream fileStream;
+            SaveSoundGroup isolatedGroup = new SaveSoundGroup();
+            SaveSoundGroup assetsGroup;
+            XmlSerializer serializer = new XmlSerializer(typeof(SaveSoundGroup));
+
+            using (Stream fileStream = Application.GetResourceStream(new Uri("Xmls/" + xmlName, UriKind.Relative)).Stream)
+            {
+                assetsGroup = (SaveSoundGroup)serializer.Deserialize(fileStream);
+            }
 
             if (IsolatedStorageFile.GetUserStoreForApplication().FileExists(xmlName))
             {
-                fileStream = IsolatedStorageFile.GetUserStoreForApplication().OpenFile(xmlName, FileMode.Open, FileAccess.Read);
+                using (Stream fileStream = IsolatedStorageFile.GetUserStoreForApplication().OpenFile(xmlName, FileMode.Open, FileAccess.Read))
+                {
+                    isolatedGroup = (SaveSoundGroup)serializer.Deserialize(fileStream);
+                }
+
+                foreach (var entry in assetsGroup.Items)
+                {
+                    if (!isolatedGroup.Items.Contains(entry))
+                    {
+                        isolatedGroup.Items.Add(entry);
+                    }
+                }
             }
             else
             {
-                fileStream = Application.GetResourceStream(new Uri("Xmls/" + xmlName, UriKind.Relative)).Stream;
+                isolatedGroup = assetsGroup;
             }
 
-            XmlSerializer serializer = new XmlSerializer(typeof(SaveSoundGroup));
-            SaveSoundGroup newGroup = (SaveSoundGroup)serializer.Deserialize(fileStream);
-
-            fileStream.Close();
-            fileStream.Dispose();
-
-            return new SoundGroup(newGroup);
+            return new SoundGroup(isolatedGroup);
         }
 
         private void SaveToXml(SoundGroup group, string xmlName)
